@@ -1,23 +1,15 @@
-# Phase 2 input rules. Keep thresholds here aligned with src/pipeline.py.
-timezone: UTC
-money_currency: INR
-quantity:
-  minimum_exclusive: 0
-unit_price:
-  minimum_inclusive: 0
-discount_percent:
-  minimum_inclusive: 0
-  maximum_inclusive: 100
-money:
-  precision: 18
-  scale: 2
-  rounding: HALF_UP
-customer_history:
-  effective_interval: '[effective_from, effective_to)'
-  source_effective_timestamp: write_date
-  tracked_attributes:
-    - customer_name
-    - city
-    - category_ids_raw
-    - active
-# No segment is included: it is absent from the supplied customer CSV contract.
+{
+  "timezone": "UTC",
+  "money_currency": "source order currency; no conversion in Silver",
+  "quantity_min_exclusive": "0",
+  "unit_price_min_inclusive": "0",
+  "discount_min_inclusive": "0",
+  "discount_max_inclusive": "100",
+  "list_price_min_inclusive": "0",
+  "money_precision": 18,
+  "money_scale": 2,
+  "rounding": "HALF_UP",
+  "customer_effective_interval": "[effective_from, effective_to)",
+  "customer_source_version": "write_date",
+  "customer_tracked_attributes": ["customer_name", "city", "category_ids_raw", "active"]
+}
